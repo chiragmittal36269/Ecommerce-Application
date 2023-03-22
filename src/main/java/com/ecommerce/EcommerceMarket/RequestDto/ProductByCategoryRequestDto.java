@@ -5,13 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class CreateSellerRequestDto {
+@AllArgsConstructor
+public class ProductByCategoryRequestDto {
 
-    private String name;
-    private String email;
-    private String mobile;
-    private String panCard;
+    private String category;
 
 }

@@ -1,11 +1,12 @@
 package com.ecommerce.EcommerceMarket.Controller;
 
-import com.ecommerce.EcommerceMarket.RequestDto.CreateProductRequestDto;
-import com.ecommerce.EcommerceMarket.RequestDto.ViewProductByCategoryRequestDto;
-import com.ecommerce.EcommerceMarket.ResponseDto.CreateProductResponseDto;
-import com.ecommerce.EcommerceMarket.ResponseDto.ViewProductByCategoryResponseDto;
+import com.ecommerce.EcommerceMarket.Enum.ProductCategory;
+import com.ecommerce.EcommerceMarket.RequestDto.ProductRequestDto;
+import com.ecommerce.EcommerceMarket.ResponseDto.ProductResponseDto;
 import com.ecommerce.EcommerceMarket.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,14 +19,21 @@ public class ProductController {
     ProductService productService;
 
     @PostMapping("/add")
-    public CreateProductResponseDto addProduct(@RequestBody CreateProductRequestDto createProductRequestDto)
-    {
-        return productService.addProduct(createProductRequestDto);
+    public ResponseEntity addProduct(@RequestBody ProductRequestDto productRequestDto) throws Exception {
+        ProductResponseDto productResponseDto;
+        try {
+            productResponseDto = productService.addProduct(productRequestDto);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity(productResponseDto, HttpStatus.CREATED);
     }
 
-    @GetMapping("/getProductByCategory")
-    public List<ViewProductByCategoryResponseDto> getProductByCategory(@RequestBody ViewProductByCategoryRequestDto viewProductByCategoryRequestDto)
+    @GetMapping("/get/category/{productCategory}")
+    public List<ProductResponseDto> getProductByCategory(@PathVariable("productCategory")ProductCategory productCategory)
     {
-        return productService.getProductByCategory(viewProductByCategoryRequestDto);
+        return productService.getProductByCategory(productCategory);
     }
 }

@@ -1,19 +1,19 @@
 package com.ecommerce.EcommerceMarket.ResponseDto;
 
+import com.ecommerce.EcommerceMarket.Enum.ProductStatus;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class ViewProductByCategoryResponseDto {
+@AllArgsConstructor
+@Builder
+public class ProductResponseDto {
 
     private String name;
-
     private int price;
-
     private int quantity;
-
-    private String sellerName;
+    private ProductStatus productStatus;
 }

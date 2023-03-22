@@ -1,17 +1,21 @@
 package com.ecommerce.EcommerceMarket.ResponseDto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateSellerResponseDto {
+@Builder
+public class ProductByCategoryResponseDto {
 
-    private int id;
     private String name;
-    private String email;
-    private String mobile;
-    private String panCard;
+
+    private int price;
+
+    private int quantity;
+
+    private String sellerName;
 }

@@ -1,15 +1,17 @@
 package com.ecommerce.EcommerceMarket.RequestDto;
 
-import com.ecommerce.EcommerceMarket.Enum.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class ViewProductByCategoryRequestDto {
+@NoArgsConstructor
+public class SellerRequestDto {
 
-    private String category;
+    private String name;
+    private String email;
+    private String mobile;
+    private String panCard;
 
 }

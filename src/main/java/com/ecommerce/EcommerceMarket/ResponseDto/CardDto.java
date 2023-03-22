@@ -1,5 +1,6 @@
 package com.ecommerce.EcommerceMarket.ResponseDto;
 
+import com.ecommerce.EcommerceMarket.Enum.CardType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,14 +8,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateProductResponseDto {
+public class CardDto {
 
-    private int id;
-
-    private String Name;
-
-    private int price;
-
-    private int quantity;
-
+    private String cardNo;
+    private CardType cardType;
 }

@@ -1,8 +1,9 @@
 package com.ecommerce.EcommerceMarket.Model;
 
-import com.ecommerce.EcommerceMarket.Enum.Category;
+import com.ecommerce.EcommerceMarket.Enum.ProductCategory;
 import com.ecommerce.EcommerceMarket.Enum.ProductStatus;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name = "product")
 public class Product {
 
@@ -30,7 +32,7 @@ public class Product {
 
 
     @Enumerated(EnumType.STRING)
-    Category category;
+    ProductCategory productCategory;
 
     @ManyToOne
     @JoinColumn
