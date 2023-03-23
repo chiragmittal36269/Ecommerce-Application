@@ -2,6 +2,10 @@ package com.ecommerce.EcommerceMarket.Convertor;
 
 import com.ecommerce.EcommerceMarket.Model.Seller;
 import com.ecommerce.EcommerceMarket.RequestDto.SellerRequestDto;
+import com.ecommerce.EcommerceMarket.ResponseDto.SellerResponseDto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SellerConvertor {
 
@@ -15,6 +19,19 @@ public class SellerConvertor {
                 .build();
 
         return seller;
+    }
+
+
+    public static SellerResponseDto sellerToSellerResponseDto(Seller seller)
+    {
+        SellerResponseDto sellerResponseDto = SellerResponseDto.builder()
+                .name(seller.getName())
+                .email(seller.getEmail())
+                .mobile(seller.getMobile())
+                .panCard(seller.getPanCard())
+                .build();
+
+        return sellerResponseDto;
     }
 
 }

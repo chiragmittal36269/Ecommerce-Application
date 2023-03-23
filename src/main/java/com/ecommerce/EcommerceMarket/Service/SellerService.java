@@ -4,8 +4,12 @@ import com.ecommerce.EcommerceMarket.Convertor.SellerConvertor;
 import com.ecommerce.EcommerceMarket.Model.Seller;
 import com.ecommerce.EcommerceMarket.Repository.SellerRepository;
 import com.ecommerce.EcommerceMarket.RequestDto.SellerRequestDto;
+import com.ecommerce.EcommerceMarket.ResponseDto.SellerResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class SellerService {
@@ -69,8 +73,17 @@ public class SellerService {
         return "Congrats!! Now you can sell on our site :)..";
     }
 
-//    public List<ViewAllSellerResponseDto> viewAllSeller() {
-//
-//    }
+    public List<SellerResponseDto> viewAllSeller() {
 
+        List<Seller> sellers = sellerRepository.findAll();
+
+        List<SellerResponseDto> sellerResponseDtos = new ArrayList<>();
+        for (Seller s : sellers) {
+            SellerResponseDto sellerResponseDto = SellerConvertor.sellerToSellerResponseDto(s);
+
+            sellerResponseDtos.add(sellerResponseDto);
+        }
+
+        return sellerResponseDtos;
+    }
 }

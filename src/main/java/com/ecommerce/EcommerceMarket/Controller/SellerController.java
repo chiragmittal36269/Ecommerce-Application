@@ -1,9 +1,12 @@
 package com.ecommerce.EcommerceMarket.Controller;
 
 import com.ecommerce.EcommerceMarket.RequestDto.SellerRequestDto;
+import com.ecommerce.EcommerceMarket.ResponseDto.SellerResponseDto;
 import com.ecommerce.EcommerceMarket.Service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/seller")
@@ -18,10 +21,12 @@ public class SellerController {
         return sellerService.addSeller(sellerRequestDto);
     }
 
-//    @GetMapping("/getAllSellers")
-//    public List<ViewAllSellerResponseDto> viewAllSeller()
-//    {
-//
-//        return sellerService.viewAllSeller();
-//    }
+    @GetMapping("/getAllSellers")
+    public List<SellerResponseDto> viewAllSeller()
+    {
+
+        return sellerService.viewAllSeller();
+    }
+
+
 }
