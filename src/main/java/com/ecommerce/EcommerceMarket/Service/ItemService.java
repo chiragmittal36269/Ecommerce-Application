@@ -19,10 +19,10 @@ public class ItemService {
     @Autowired
     ProductRepository productRepository;
 
-    public ItemResponseDto viewItem(ItemRequestDto itemRequestDto) throws ProductNotFoundException {
+    public ItemResponseDto viewItem(int productId) throws ProductNotFoundException {
         Product product;
         try {
-            product = productRepository.findById(itemRequestDto.getProductId()).get();
+            product = productRepository.findById(productId).get();
         } catch (Exception e) {
             throw new ProductNotFoundException("Invalid product id");
         }
@@ -38,6 +38,7 @@ public class ItemService {
         //saving both item and product
         productRepository.save(product);
 
+        //make the responseDto
         ItemResponseDto itemResponseDto = ItemResponseDto.builder()
                 .productName(product.getName())
                 .price(product.getPrice())
