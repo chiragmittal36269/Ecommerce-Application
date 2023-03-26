@@ -1,5 +1,6 @@
 package com.ecommerce.EcommerceMarket.Service;
 
+import com.ecommerce.EcommerceMarket.Enum.ProductStatus;
 import com.ecommerce.EcommerceMarket.Exception.CustomerNotFoundException;
 import com.ecommerce.EcommerceMarket.Exception.ProductNotFoundException;
 import com.ecommerce.EcommerceMarket.Model.*;
@@ -115,6 +116,13 @@ public class CartService {
             }
             cardNo += card.getCardNo().substring(card.getCardNo().length() - 4);
             ordered.setCardUsedForPayment(cardNo);
+
+            int leftQuantity = item.getProduct().getQuantity() - item.getRequiredQuantity();
+            if(leftQuantity <= 0)
+            {
+                item.getProduct().setProductStatus(ProductStatus.OUT_OF_STOCK);
+            }
+            item.getProduct().setQuantity(leftQuantity);
 
             customer.getOrderedList().add(ordered);
             item.setOrdered(ordered);
