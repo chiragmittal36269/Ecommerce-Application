@@ -43,4 +43,31 @@ public class CardServiceImpl implements CardService {
 
         return cardResponseDto;
     }
+
+    @Override
+    public String deleteCard(int id) {
+        cardRepository.deleteById(id);
+
+        return "Card is successfully deleted";
+    }
+
+    @Override
+    public String deleteCard(String cardNo) {
+        Card card = cardRepository.findByCardNo(cardNo);
+
+        cardRepository.delete(card);
+
+        return "Card has been deleted successfully";
+    }
+
+    @Override
+    public String deleteByCustomerId(int id) {
+        Customer customer = customerRepository.findById(id).get();
+
+        for (Card card : customer.getCardList()) {
+            cardRepository.delete(card);
+        }
+
+        return "All the card has been deleted";
+    }
 }

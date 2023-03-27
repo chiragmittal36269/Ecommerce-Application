@@ -127,4 +127,17 @@ public class SellerServiceImpl implements SellerService {
         sellerRepository.deleteAll();
         return "All Sellers data have been deleted";
     }
+
+    @Override
+    public List<SellerResponseDto> getByAge(int age) {
+        List<Seller> sellerList = sellerRepository.findByAge(age);
+
+        List<SellerResponseDto> sellerResponseDtos = new ArrayList<>();
+        for (Seller seller : sellerList) {
+            SellerResponseDto sellerResponseDto = SellerConvertor.sellerToSellerResponseDto(seller);
+
+            sellerResponseDtos.add(sellerResponseDto);
+        }
+        return sellerResponseDtos;
+    }
 }

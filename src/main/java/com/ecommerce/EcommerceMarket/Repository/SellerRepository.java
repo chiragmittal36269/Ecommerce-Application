@@ -13,6 +13,9 @@ public interface SellerRepository extends JpaRepository<Seller, Integer> {
     // Inbuilt Custom
     Seller findByPanCard(String panCard);
 
+    List<Seller> findByAge(int age);
+
+
 
 
     // Custom Query

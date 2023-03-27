@@ -7,4 +7,9 @@ public interface CardService {
 
     CardResponseDto addCard(CardRequestDto cardRequestDto) throws Exception;
 
+    String deleteCard(int id);
+
+    String deleteCard(String cardNo);
+
+    String deleteByCustomerId(int id);
 }

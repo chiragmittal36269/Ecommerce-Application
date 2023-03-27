@@ -18,4 +18,6 @@ public interface SellerService {
     String deleteSeller(int sellerId);
 
     String deleteAllSeller();
+
+    List<SellerResponseDto> getByAge(int age);
 }

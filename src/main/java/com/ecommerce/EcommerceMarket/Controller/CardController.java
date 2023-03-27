@@ -28,4 +28,19 @@ public class CardController {
         }
         return new ResponseEntity(cardResponseDto, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteCard(@PathVariable("id") int id) {
+        return cardService.deleteCard(id);
+    }
+
+    @DeleteMapping("/delete")
+    public String deleteCard(@RequestParam("card") String cardNo) {
+        return cardService.deleteCard(cardNo);
+    }
+
+    @DeleteMapping("/delete")
+    public String deleteByCustomerId(@RequestParam("id") int id) {
+        return cardService.deleteByCustomerId(id);
+    }
 }

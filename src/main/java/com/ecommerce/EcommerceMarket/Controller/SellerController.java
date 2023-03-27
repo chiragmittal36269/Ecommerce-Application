@@ -32,6 +32,13 @@ public class SellerController {
     }
 
 
+    @GetMapping("/get/age")
+    public List<SellerResponseDto> getByAge(@PathVariable("age") int age)
+    {
+        return sellerService.getByAge(age);
+    }
+
+
     @GetMapping("/get")
     public List<SellerResponseDto> getAllSeller(@RequestParam int startAge, @RequestParam int endAge) {
         return sellerService.getAllSeller(startAge, endAge);
