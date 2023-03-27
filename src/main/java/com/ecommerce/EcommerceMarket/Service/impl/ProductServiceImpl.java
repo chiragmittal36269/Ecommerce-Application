@@ -78,6 +78,7 @@ public class ProductServiceImpl implements ProductService {
 //    }
 
 
+    @Override
     public ProductResponseDto addProduct(ProductRequestDto productRequestDto) throws SellerNotPresentException {
 
         Seller seller;
@@ -109,6 +110,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
+    @Override
     public List<ProductResponseDto> getProductByCategory(ProductCategory productCategory)
     {
         List<Product> products = productRepository.findAllByProductCategory(productCategory);

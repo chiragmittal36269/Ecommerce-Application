@@ -21,6 +21,7 @@ public class CardServiceImpl implements CardService {
     @Autowired
     CustomerRepository customerRepository;
 
+    @Override
     public CardResponseDto addCard(CardRequestDto cardRequestDto) throws CustomerNotFoundException {
         Customer customer;
         try {

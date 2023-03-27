@@ -8,6 +8,7 @@ import com.ecommerce.EcommerceMarket.ResponseDto.SellerResponseDto;
 import com.ecommerce.EcommerceMarket.Service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +65,7 @@ public class SellerServiceImpl implements SellerService {
 //    }
 
     // with the help of builder
+    @Override
     public String addSeller(SellerRequestDto sellerRequestDto) {
 
         // convert requestDto to Seller with the help of convertor
@@ -74,6 +76,7 @@ public class SellerServiceImpl implements SellerService {
         return "Congrats!! Now you can sell on our site :)..";
     }
 
+    @Override
     public List<SellerResponseDto> viewAllSeller() {
 
         List<Seller> sellers = sellerRepository.findAll();
@@ -86,5 +89,42 @@ public class SellerServiceImpl implements SellerService {
         }
 
         return sellerResponseDtos;
+    }
+
+    @Override
+    public SellerResponseDto getSeller(String panCard) {
+        Seller seller = sellerRepository.findByPanCard(panCard);
+
+        SellerResponseDto sellerResponseDto = SellerConvertor.sellerToSellerResponseDto(seller);
+
+        return sellerResponseDto;
+    }
+
+    @Override
+    public List<SellerResponseDto> getAllSeller(int startAge, int endAge) {
+        List<Seller> sellerList = sellerRepository.findAllAge(startAge, endAge);
+
+        List<SellerResponseDto> sellerResponseDtos = new ArrayList<>();
+
+        for (Seller seller : sellerList) {
+            SellerResponseDto sellerResponseDto = SellerConvertor.sellerToSellerResponseDto(seller);
+
+            sellerResponseDtos.add(sellerResponseDto);
+        }
+
+        return sellerResponseDtos;
+    }
+
+    @Override
+    public String deleteSeller(int sellerId) {
+        sellerRepository.deleteById(sellerId);
+
+        return "Seller has been deleted Successfully.";
+    }
+
+    @Override
+    public String deleteAllSeller() {
+        sellerRepository.deleteAll();
+        return "All Sellers data have been deleted";
     }
 }

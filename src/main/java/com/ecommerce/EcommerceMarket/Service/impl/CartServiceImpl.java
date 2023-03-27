@@ -4,7 +4,6 @@ import com.ecommerce.EcommerceMarket.Enum.ProductStatus;
 import com.ecommerce.EcommerceMarket.Exception.CustomerNotFoundException;
 import com.ecommerce.EcommerceMarket.Exception.ProductNotFoundException;
 import com.ecommerce.EcommerceMarket.Model.*;
-import com.ecommerce.EcommerceMarket.Repository.CartRepository;
 import com.ecommerce.EcommerceMarket.Repository.CustomerRepository;
 import com.ecommerce.EcommerceMarket.Repository.ProductRepository;
 import com.ecommerce.EcommerceMarket.RequestDto.OrderRequestDto;
@@ -22,8 +21,6 @@ import java.util.List;
 @Service
 public class CartServiceImpl implements CartService {
 
-    @Autowired
-    CartRepository cartRepository;
 
     @Autowired
     CustomerRepository customerRepository;
@@ -32,12 +29,9 @@ public class CartServiceImpl implements CartService {
     ProductRepository productRepository;
 
     @Autowired
-    OrderServiceImpl orderServiceImpl;
-
-    @Autowired
     JavaMailSender emailSender;
 
-
+    @Override
     public String addToCart(OrderRequestDto orderRequestDto) throws CustomerNotFoundException, ProductNotFoundException, InsufficientResourcesException {
         //check customer is available
         Customer customer;
@@ -87,8 +81,8 @@ public class CartServiceImpl implements CartService {
         return "Item has been added to the cart";
     }
 
-
-    public List<OrderResponseDto> checkoutCart(int customerId) throws CustomerNotFoundException, InsufficientResourcesException, ProductNotFoundException {
+    @Override
+    public List<OrderResponseDto> checkoutCart(int customerId) throws CustomerNotFoundException {
         // check the customer
         Customer customer;
         try {

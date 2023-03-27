@@ -28,8 +28,9 @@ public class OrderServiceImpl implements OrderService {
     ProductRepository productRepository;
 
     @Autowired
-    ItemServiceImpl itemServiceImpl;
+    ItemServiceImpl itemService;
 
+    @Override
     public OrderResponseDto placeOrder(OrderRequestDto orderRequestDto) throws CustomerNotFoundException, ProductNotFoundException, InsufficientResourcesException {
 
         //check customer is available

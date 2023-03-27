@@ -11,4 +11,11 @@ public interface SellerService {
 
     List<SellerResponseDto> viewAllSeller();
 
+    SellerResponseDto getSeller(String panCard);
+
+    List<SellerResponseDto> getAllSeller(int startAge, int endAge);
+
+    String deleteSeller(int sellerId);
+
+    String deleteAllSeller();
 }

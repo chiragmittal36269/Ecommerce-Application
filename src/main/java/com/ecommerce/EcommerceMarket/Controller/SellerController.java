@@ -24,4 +24,29 @@ public class SellerController {
     public List<SellerResponseDto> viewAllSeller() {
         return sellerService.viewAllSeller();
     }
+
+
+    @GetMapping("/get/{pancard")
+    public SellerResponseDto getSeller(@PathVariable("pancard") String panCard) {
+        return sellerService.getSeller(panCard);
+    }
+
+
+    @GetMapping("/get")
+    public List<SellerResponseDto> getAllSeller(@RequestParam int startAge, @RequestParam int endAge) {
+        return sellerService.getAllSeller(startAge, endAge);
+    }
+
+
+    @DeleteMapping("/delete/{sellerId}")
+    public String deleteSeller(@PathVariable("sellerId") int sellerId) {
+        return sellerService.deleteSeller(sellerId);
+    }
+
+
+    @DeleteMapping("/deleteAll")
+    public String deleteAllSeller()
+    {
+        return sellerService.deleteAllSeller();
+    }
 }

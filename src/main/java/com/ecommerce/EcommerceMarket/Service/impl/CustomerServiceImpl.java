@@ -5,6 +5,7 @@ import com.ecommerce.EcommerceMarket.Model.Cart;
 import com.ecommerce.EcommerceMarket.Model.Customer;
 import com.ecommerce.EcommerceMarket.Repository.CustomerRepository;
 import com.ecommerce.EcommerceMarket.RequestDto.CustomerRequestDto;
+import com.ecommerce.EcommerceMarket.ResponseDto.CustomerResponseDto;
 import com.ecommerce.EcommerceMarket.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,8 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
-    public String addCustomer(CustomerRequestDto customerRequestDto)
-    {
+    @Override
+    public String addCustomer(CustomerRequestDto customerRequestDto) {
         Customer customer = CustomerConvertor.customerRequestDtoToCustomer(customerRequestDto);
 
         // allocate the cart to customer
@@ -33,4 +34,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
+    public CustomerResponseDto getById(int customerId) {
+
+        Customer customer = customerRepository.findById(customerId).get();
+
+        CustomerResponseDto customerResponseDto = CustomerConvertor.customerToCustomerResponseDto(customer);
+
+        return customerResponseDto;
+    }
 }

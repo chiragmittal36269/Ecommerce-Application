@@ -19,6 +19,7 @@ public class ItemServiceImpl implements ItemService {
     @Autowired
     ProductRepository productRepository;
 
+    @Override
     public ItemResponseDto viewItem(int productId) throws ProductNotFoundException {
         Product product;
         try {

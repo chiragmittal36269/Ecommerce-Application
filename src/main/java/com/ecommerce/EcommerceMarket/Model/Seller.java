@@ -29,6 +29,8 @@ public class Seller {
     @Column(unique = true)
     private String mobile;
 
+    private int age;
+
     @Column(unique = true)
     private String panCard;
 
