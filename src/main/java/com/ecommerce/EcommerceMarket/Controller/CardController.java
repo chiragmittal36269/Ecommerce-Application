@@ -4,6 +4,7 @@ import com.ecommerce.EcommerceMarket.Exception.CustomerNotFoundException;
 import com.ecommerce.EcommerceMarket.RequestDto.CardRequestDto;
 import com.ecommerce.EcommerceMarket.ResponseDto.CardResponseDto;
 import com.ecommerce.EcommerceMarket.Service.CardService;
+import com.ecommerce.EcommerceMarket.Service.impl.CardServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CardController {
 
     @Autowired
-    CardService cardService;
+    CardServiceImpl cardService;
 
     @PostMapping("/add")
     public ResponseEntity addCard(@RequestBody CardRequestDto cardRequestDto) throws CustomerNotFoundException {

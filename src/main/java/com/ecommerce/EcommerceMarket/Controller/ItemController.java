@@ -1,8 +1,7 @@
 package com.ecommerce.EcommerceMarket.Controller;
 
-import com.ecommerce.EcommerceMarket.RequestDto.ItemRequestDto;
 import com.ecommerce.EcommerceMarket.ResponseDto.ItemResponseDto;
-import com.ecommerce.EcommerceMarket.Service.ItemService;
+import com.ecommerce.EcommerceMarket.Service.impl.ItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class ItemController {
 
     @Autowired
-    ItemService itemService;
+    ItemServiceImpl itemService;
 
     @GetMapping("/get/{productId}")
     public ResponseEntity viewItem(@PathVariable("productId") int productId) {

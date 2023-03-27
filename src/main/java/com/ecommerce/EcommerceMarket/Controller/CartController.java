@@ -2,7 +2,7 @@ package com.ecommerce.EcommerceMarket.Controller;
 
 import com.ecommerce.EcommerceMarket.RequestDto.OrderRequestDto;
 import com.ecommerce.EcommerceMarket.ResponseDto.OrderResponseDto;
-import com.ecommerce.EcommerceMarket.Service.CartService;
+import com.ecommerce.EcommerceMarket.Service.impl.CartServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.List;
 public class CartController {
 
     @Autowired
-    CartService cartService;
+    CartServiceImpl cartService;
 
     //make responseDto
     @PostMapping("/add")

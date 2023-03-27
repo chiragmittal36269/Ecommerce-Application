@@ -3,7 +3,7 @@ package com.ecommerce.EcommerceMarket.Controller;
 import com.ecommerce.EcommerceMarket.Enum.ProductCategory;
 import com.ecommerce.EcommerceMarket.RequestDto.ProductRequestDto;
 import com.ecommerce.EcommerceMarket.ResponseDto.ProductResponseDto;
-import com.ecommerce.EcommerceMarket.Service.ProductService;
+import com.ecommerce.EcommerceMarket.Service.impl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    ProductService productService;
+    ProductServiceImpl productService;
 
     @PostMapping("/add")
     public ResponseEntity addProduct(@RequestBody ProductRequestDto productRequestDto) throws Exception {

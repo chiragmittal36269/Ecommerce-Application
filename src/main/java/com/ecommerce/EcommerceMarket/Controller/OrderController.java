@@ -2,7 +2,7 @@ package com.ecommerce.EcommerceMarket.Controller;
 
 import com.ecommerce.EcommerceMarket.RequestDto.OrderRequestDto;
 import com.ecommerce.EcommerceMarket.ResponseDto.OrderResponseDto;
-import com.ecommerce.EcommerceMarket.Service.OrderService;
+import com.ecommerce.EcommerceMarket.Service.impl.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
-    OrderService orderService;
+    OrderServiceImpl orderService;
 
     @PostMapping("/place")
     public ResponseEntity placeOrder(@RequestBody OrderRequestDto orderRequestDto) {
