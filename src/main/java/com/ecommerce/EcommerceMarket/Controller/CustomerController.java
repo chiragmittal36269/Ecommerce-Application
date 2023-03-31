@@ -25,7 +25,7 @@ public class CustomerController {
         return customerService.getById(customerId);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/getAllCustomer")
     public List<CustomerResponseDto> getAllCustomer() {
         return customerService.getAllCustomer();
     }
@@ -35,7 +35,7 @@ public class CustomerController {
         return customerService.getByAge(age);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/getByAgeBetween")
     public List<CustomerResponseDto> getByAge(@RequestParam int startAge, @RequestParam int endAge) {
         return customerService.getByAge(startAge, endAge);
     }
@@ -45,27 +45,27 @@ public class CustomerController {
         return customerService.deleteById(id);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/getByEmail")
     public CustomerResponseDto getByEmail(@RequestParam("email") String email) {
         return customerService.getByEmail(email);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/updateName")
     public CustomerResponseDto updateName(@RequestParam("name") String name, @RequestParam("id") int id) {
         return customerService.updateName(name, id);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/updateAge")
     public CustomerResponseDto updateAge(@RequestParam("age") int age, @RequestParam("id") int id) {
         return customerService.updateAge(age, id);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/updateEmail")
     public CustomerResponseDto updateEmail(@RequestParam("email") String email, @RequestParam("id") int id) {
         return customerService.updateEmail(email, id);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/updateMobile")
     public CustomerResponseDto updateMobile(@RequestParam("mobile") String mobile, @RequestParam("id") int id) {
         return customerService.updateMobile(mobile, id);
     }

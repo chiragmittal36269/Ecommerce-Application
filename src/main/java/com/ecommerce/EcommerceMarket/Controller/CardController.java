@@ -39,7 +39,7 @@ public class CardController {
         return cardService.deleteCard(cardNo);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/deleteById")
     public String deleteByCustomerId(@RequestParam("id") int id) {
         return cardService.deleteByCustomerId(id);
     }
