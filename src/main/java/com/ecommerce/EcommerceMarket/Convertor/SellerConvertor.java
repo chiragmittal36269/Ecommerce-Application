@@ -16,6 +16,7 @@ public class SellerConvertor {
                 .email(sellerRequestDto.getEmail())
                 .mobile(sellerRequestDto.getMobile())
                 .panCard(sellerRequestDto.getPanCard())
+                .age(sellerRequestDto.getAge())
                 .build();
 
         return seller;
@@ -29,6 +30,7 @@ public class SellerConvertor {
                 .email(seller.getEmail())
                 .mobile(seller.getMobile())
                 .panCard(seller.getPanCard())
+                .age(seller.getAge())
                 .build();
 
         return sellerResponseDto;

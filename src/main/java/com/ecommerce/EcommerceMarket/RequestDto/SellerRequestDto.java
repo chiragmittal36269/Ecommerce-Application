@@ -13,5 +13,6 @@ public class SellerRequestDto {
     private String email;
     private String mobile;
     private String panCard;
+    private int age;
 
 }

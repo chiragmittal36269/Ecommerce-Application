@@ -12,6 +12,9 @@ import com.ecommerce.EcommerceMarket.Service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class CardServiceImpl implements CardService {
 
@@ -60,14 +63,19 @@ public class CardServiceImpl implements CardService {
         return "Card has been deleted successfully";
     }
 
+    // not working...
     @Override
     public String deleteByCustomerId(int id) {
         Customer customer = customerRepository.findById(id).get();
 
-        for (Card card : customer.getCardList()) {
-            cardRepository.delete(card);
-        }
+        List<Card> cardList = customer.getCardList();
+        if(cardList.size() == 0)
+            return "No Card is Left to delete";
 
+        for(Card c : cardList)
+        {
+            deleteCard(c.getCardNo());
+        }
         return "All the card has been deleted";
     }
 }

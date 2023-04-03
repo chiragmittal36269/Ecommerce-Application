@@ -5,6 +5,12 @@ public enum ProductCategory {
     SPORTS,
     FASHION,
     ELECTRONICS,
-    BOOKS
+    BOOKS,
+    ACCESSORIES,
+    FURNITURE,
+    MOBILE_COVER,
+    VEHICLES,
+    BAGS,
+    CABLES
 
 }

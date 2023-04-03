@@ -23,13 +23,13 @@ public class Seller {
 
     private String name;
 
+    private int age;
+
     @Column(unique = true)
     private String email;
 
     @Column(unique = true)
     private String mobile;
-
-    private int age;
 
     @Column(unique = true)
     private String panCard;

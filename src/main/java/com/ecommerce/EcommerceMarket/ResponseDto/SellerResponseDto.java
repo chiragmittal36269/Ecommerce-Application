@@ -19,4 +19,6 @@ public class SellerResponseDto {
 
     private String panCard;
 
+    private int age;
+
 }

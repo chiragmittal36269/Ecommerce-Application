@@ -26,13 +26,13 @@ public class SellerController {
     }
 
 
-    @GetMapping("/get/{pancard")
+    @GetMapping("/get/{pancard}")
     public SellerResponseDto getSeller(@PathVariable("pancard") String panCard) {
         return sellerService.getSeller(panCard);
     }
 
 
-    @GetMapping("/get/age")
+    @GetMapping("/getByAge/{age}")
     public List<SellerResponseDto> getByAge(@PathVariable("age") int age)
     {
         return sellerService.getByAge(age);
